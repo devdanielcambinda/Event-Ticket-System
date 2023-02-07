@@ -4,3 +4,4 @@
 /backend/yarn.lock
 /frontend/yarn.lock
 /backend/config/.env
+/backend/package-lock.json

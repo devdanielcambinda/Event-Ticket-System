@@ -1,6 +1,6 @@
-import { RequestHandler } from "express";
+import { RequestHandler, Request, Response } from "express";
 
-export const getNotFound: RequestHandler = (req,res) => {
+export const getNotFound: RequestHandler = (req: Request,res: Response) => {
     res.status(404).send({message:'Route not found'})
 }
 
