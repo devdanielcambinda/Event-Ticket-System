@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
-import Cookies from 'js-cookie'
+import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar: React.FC = () => {
 
-    const sessionCookie = Cookies.get("sessionCookie")
-    const [isLogged,] = useState<boolean>(sessionCookie !== undefined? true : false);
-    //const isLogged = true;
+    const userContext = useContext(AuthContext);
+    console.log(userContext);
     
     const menuLogged = (
     <nav className="p-3 mb-3 border-bottom">
@@ -35,7 +34,7 @@ const NavBar: React.FC = () => {
         </div>
     </nav>);
 
-    if (isLogged){
+    if (userContext.user){
         return menuLogged;
     }
 
