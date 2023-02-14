@@ -1,11 +1,10 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar: React.FC = () => {
 
     const userContext = useContext(AuthContext);
-    console.log(userContext);
     
     const menuLogged = (
     <nav className="p-3 mb-3 border-bottom">
