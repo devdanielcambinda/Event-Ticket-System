@@ -6,13 +6,13 @@ import Footer from './components/Footer/Footer';
 
 const App:React.FC = () => {
   return (
-      <div className="main-content container">
+      <main className="main-content">
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
         <Footer />
-      </div>
+      </main>
   );
 }
 
