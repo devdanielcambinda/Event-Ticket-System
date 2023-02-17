@@ -1,10 +1,11 @@
 import React, {useContext} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar: React.FC = () => {
 
     const userContext = useContext(AuthContext);
+    const navigate = useNavigate();
     
     const menuLogged = (
     <nav className="p-3 mb-3 border-bottom">
@@ -12,9 +13,9 @@ const NavBar: React.FC = () => {
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
                 <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><Link to={""} className="nav-link px-2 link-secondary">Overview</Link></li>
-                <li><Link to={""} className="nav-link px-2 link-dark">Events</Link></li>
-                <li><Link to={""} className="nav-link px-2 link-dark">Tickets</Link></li>
+                <li><Link to={"/"} className="nav-link px-2 link-secondary">Overview</Link></li>
+                <li><Link to={"/events"} className="nav-link px-2 link-dark">Events</Link></li>
+                <li><Link to={"/tickets"} className="nav-link px-2 link-dark">Tickets</Link></li>
                 </ul>
 
                 <div className="dropdown text-end">
@@ -43,14 +44,14 @@ const NavBar: React.FC = () => {
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
                 <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><Link to={""} className="nav-link px-2 link-secondary">Overview</Link></li>
-                <li><Link to={""} className="nav-link px-2 link-dark">Events</Link></li>
-                <li><Link to={""} className="nav-link px-2 link-dark">Tickets</Link></li>
+                <li><Link to={"/"} className="nav-link px-2 link-secondary">Overview</Link></li>
+                <li><Link to={"/events"} className="nav-link px-2 link-dark">Events</Link></li>
+                <li><Link to={"/tickets"} className="nav-link px-2 link-dark">Tickets</Link></li>
                 </ul>
 
                 <div className=" text-end">
-                    <button type="button" className="btn btn-outline-primary me-2">Register</button>
-                    <button type="button" className="btn btn-primary">Login</button>
+                    <button type="button" className="btn btn-outline-primary me-2" onClick={e => { navigate("/register")}} >Register</button>
+                    <button type="button" className="btn btn-primary" onClick={e => { navigate("/login")}}>Login</button>
                 </div>
             </div>
         </div>
