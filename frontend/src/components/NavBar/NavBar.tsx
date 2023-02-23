@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
+import useAuth from "../../hooks/useAuth";
 
 const NavBar: React.FC = () => {
 
-    const userContext = useContext(AuthContext);
+    const userContext = useAuth();
     const navigate = useNavigate();
     
     const menuLogged = (
