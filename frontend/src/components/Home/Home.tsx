@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
             <div className="col-md-5 p-lg-5 mx-auto my-5">
                 <h1 className="display-4 fw-normal">Event Ticket Selling Demo</h1>
                 <p className="lead fw-normal">This is one of Daniel's portfolio projects.This project demos a events ticket system.</p>
-                <Link className="btn btn-outline-primary" to={""}>Check available events</Link>
+                <Link className="btn btn-outline-primary" to={"/events"}>Check available events</Link>
             </div>
             <div className="product-device shadow-sm d-none d-md-block"></div>
             <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
