@@ -23,9 +23,9 @@ const NavBar: React.FC = () => {
                         <img src="https://github.com/mdo.png" alt="mdo" className="rounded-circle" width="32" height="32"/>
                     </div>
                     <ul className="dropdown-menu text-small">
-                        <li><Link className="dropdown-item" to={""}>My tickets</Link></li>
-                        <li><Link className="dropdown-item" to={""}>Profile</Link></li>
-                        <li><Link className="dropdown-item" to={""}>Settings</Link></li>
+                        <li><Link className="dropdown-item" to={"/mytickets"}>My tickets</Link></li>
+                        <li><Link className="dropdown-item" to={"/profile"}>Profile</Link></li>
+                        <li><Link className="dropdown-item" to={"/settings"}>Settings</Link></li>
                         <li><hr className="dropdown-divider"/></li>
                         <li><Link className="dropdown-item" to={""}>Logout</Link></li>
                     </ul>
@@ -50,7 +50,7 @@ const NavBar: React.FC = () => {
                 </ul>
 
                 <div className=" text-end">
-                    <button type="button" className="btn btn-outline-primary me-2" onClick={e => { navigate("/register")}} >Register</button>
+                    <button type="button" className="btn btn-outline-primary me-2" onClick={e => { navigate("/signup")}} >Sign up</button>
                     <button type="button" className="btn btn-primary" onClick={e => { navigate("/login")}}>Login</button>
                 </div>
             </div>

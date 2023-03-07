@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
     title: string;
     description: string;
     date: string;
+    id:number;
 }
 
-export const EventCard: React.FC<Props> = ({title,description,date}: Props) => {
+export const EventCard: React.FC<Props> = ({title,description,date,id}: Props) => {
     return (
     <div className="col">
         <div className="card shadow-sm">
@@ -18,7 +20,7 @@ export const EventCard: React.FC<Props> = ({title,description,date}: Props) => {
                 <p className="card-text"> Date: {date} </p>
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
-                    <button type="button" className="btn btn-md btn-outline-secondary">View event</button>
+                    <Link to={`/events/${id}`}type="button" className="btn btn-md btn-outline-secondary" >View event</Link>
                     </div>
                     <small className="text-muted">9 mins</small>
                 </div>
