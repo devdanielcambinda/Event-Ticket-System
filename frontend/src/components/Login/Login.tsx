@@ -8,7 +8,7 @@ const Login: React.FC = () => {
     const userContext = useAuth();
     const [email, setEmail] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
-    const [loginNotOK, setLoginNotOK] = React.useState<boolean>(false);
+    const [loginError, setLoginError] = React.useState<boolean>(false);
 
     const emailChangeHandler: React.ChangeEventHandler<HTMLInputElement> = ({target}: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(target.value);
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
             setPassword("");
             navigate('/profile')
           }else {
-            setLoginNotOK(true)
+            setLoginError(true)
             setEmail("");
             setPassword("");
           }
@@ -46,7 +46,7 @@ const Login: React.FC = () => {
 
     return (
     <div className="container text-center" style={{ maxWidth: 500 }}>
-        {loginNotOK && <p style={{"color":"red"}} >Email and&#47;or password incorrect&#40;s&#41; </p>}
+        {loginError && <p style={{"color":"red"}} >Email and&#47;or password incorrect&#40;s&#41; </p>}
         <form onSubmit={submitHandler}>
         
             <h2 className="mb-5">Login</h2>
