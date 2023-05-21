@@ -1,5 +1,5 @@
 import React from "react";
-import { EventCard } from "./Event-Card";
+import { EventCard } from "./EventCard";
 
 export const Events: React.FC = () => {
     return (

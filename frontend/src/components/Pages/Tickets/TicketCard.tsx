@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
     title: string;
     description: string;
     price: number;
+    id:number;
 }
 
-export const TicketCard: React.FC<Props> = ({title,description,price}: Props) => {
+export const TicketCard: React.FC<Props> = ({title,description,price,id}: Props) => {
     return (
     <div className="col">
         <div className="card shadow-sm">
@@ -18,9 +20,9 @@ export const TicketCard: React.FC<Props> = ({title,description,price}: Props) =>
                 <p className="card-text"> Price: {price} </p>
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
-                        <button type="button" className="btn btn-md btn-outline-secondary">Buy ticket</button>
+                        <Link to={``} type="button" className="btn btn-md btn-outline-secondary" >Buy ticket</Link>
                     </div>
-                    <small className="text-muted">9 mins</small>
+                    <small className="text-muted"> Event date: 21/08/2023</small>
                 </div>
             </div>
         </div>

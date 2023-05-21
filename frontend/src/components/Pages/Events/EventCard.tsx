@@ -22,7 +22,6 @@ export const EventCard: React.FC<Props> = ({title,description,date,id}: Props) =
                     <div className="btn-group">
                     <Link to={`/events/${id}`}type="button" className="btn btn-md btn-outline-secondary" >View event</Link>
                     </div>
-                    <small className="text-muted">9 mins</small>
                 </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { TicketCard } from "./TicketCard";
 
 export const Tickets: React.FC = () => {
     return (
@@ -10,9 +11,16 @@ export const Tickets: React.FC = () => {
             </div>
         </div>
         
-        {/* escrever nome do evento \n
-            tipos de bilhete em cards
-        */}
+        <div className="album py-5 bg-light text-center">
+            <div className="container">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <TicketCard title="teste" description="testing ticket" price={19} key={1} id={1}/>
+                <TicketCard title="teste" description="testing vip ticket" price={98} key={2} id={2}/>
+                <TicketCard title="teste" description="testing ultra vip" price={1998} key={3} id={3}/>
+                <TicketCard title="teste" description="testing god ticket" price={0} key={4} id={4}/>
+            </div>
+            </div>
+        </div> 
 
     </>
     )

@@ -19,7 +19,7 @@ const Login: React.FC = () => {
         setPassword(target.value);
     }
 
-    const submitHandler: React.FormEventHandler<HTMLFormElement> = async ({target,preventDefault}:React.FormEvent<HTMLFormElement>) => {
+    const submitHandler: React.FormEventHandler<HTMLFormElement> = async ({preventDefault}:React.FormEvent<HTMLFormElement>) => {
         preventDefault()
 
         const result = await fetch("/user/login", {
@@ -48,8 +48,8 @@ const Login: React.FC = () => {
     return (
     <div className="container text-center" style={{ maxWidth: 500 }}>
         {loginError && <p style={{"color":"red"}} >Email and&#47;or password incorrect&#40;s&#41; </p>}
-        {location.state!.id! === 1 && <p style={{"color":"red"}} >{location.state.message}</p>}
-        {location.state!.id! === 2 && <p style={{"color":"green"}} >{location.state.message}</p>}
+        {(location.state && location.state!.id! === 1) && <p style={{"color":"red"}} >{location.state.message}</p>}
+        {(location.state && location.state!.id! === 2) && <p style={{"color":"green"}} >{location.state.message}</p>}
         <form onSubmit={submitHandler}>
         
             <h2 className="mb-5">Login</h2>
