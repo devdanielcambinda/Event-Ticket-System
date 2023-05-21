@@ -1,10 +1,11 @@
 import React from "react"
-import { useNavigate} from "react-router-dom"
-import useAuth from "../../hooks/useAuth";
+import { useNavigate, useLocation} from "react-router-dom"
+import useAuth from "../../../hooks/useAuth";
 
 const Login: React.FC = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const userContext = useAuth();
     const [email, setEmail] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
@@ -47,6 +48,8 @@ const Login: React.FC = () => {
     return (
     <div className="container text-center" style={{ maxWidth: 500 }}>
         {loginError && <p style={{"color":"red"}} >Email and&#47;or password incorrect&#40;s&#41; </p>}
+        {location.state!.id! === 1 && <p style={{"color":"red"}} >{location.state.message}</p>}
+        {location.state!.id! === 2 && <p style={{"color":"green"}} >{location.state.message}</p>}
         <form onSubmit={submitHandler}>
         
             <h2 className="mb-5">Login</h2>

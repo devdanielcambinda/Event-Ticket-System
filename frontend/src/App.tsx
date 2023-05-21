@@ -1,19 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import Home from './components/Home/Home';
-import Footer from './components/Footer/Footer';
-import { Events } from './components/Events/Events';
-import { Tickets } from './components/Tickets/Tickets';
-import { EventPage } from './components/Events/EventPage';
-import { TicketPage } from './components/Tickets/TicketPage';
-import PageNotFound from './components/PageNotFound/PageNoutFound';
-import RequireAuth from './components/AuthRequired/RequireAuth';
-import MyTickets from './components/MyTickets/MyTickets';
-import Settings from './components/Settings/Settings';
-import Profile from './components/Profile/Profile';
-import SignUp from './components/SignUp/SignUp';
-import Login from './components/Login/Login';
+import NavBar from './components/Layout/NavBar/NavBar';
+import Home from './components/Pages/Home/Home';
+import Footer from './components/Layout/Footer/Footer';
+import { Events } from './components/Pages/Events/Events';
+import { Tickets } from './components/Pages/Tickets/Tickets';
+import { EventPage } from './components/Pages/Events/EventPage';
+import { TicketPage } from './components/Pages/Tickets/TicketPage';
+import PageNotFound from './components/Pages/PageNotFound/PageNoutFound';
+import RequireAuth from './components/AuthWrapper/RequireAuth';
+import MyTickets from './components/Pages/MyTickets/MyTickets';
+import Settings from './components/Pages/Settings/Settings';
+import Profile from './components/Pages/Profile/Profile';
+import SignUp from './components/Pages/SignUp/SignUp';
+import Login from './components/Pages/Login/Login';
+import FAQ from './components/Pages/FAQ/FAQ';
+import About from './components/Pages/About/About';
 
 const App:React.FC = () => {
   return (
@@ -31,6 +33,8 @@ const App:React.FC = () => {
           </Route>
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<SignUp/>} />
+          <Route path='/faq' element={<FAQ/>} />
+          <Route path='/about' element={<About/>} />
           <Route element={<RequireAuth/>}>
               <Route path="/mytickets" element={<MyTickets/>} />
               <Route path="/settings" element={<Settings/>} />
