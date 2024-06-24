@@ -19,8 +19,8 @@ const Login: React.FC = () => {
         setPassword(target.value);
     }
 
-    const submitHandler: React.FormEventHandler<HTMLFormElement> = async ({preventDefault}:React.FormEvent<HTMLFormElement>) => {
-        preventDefault()
+    const submitHandler: React.FormEventHandler<HTMLFormElement> = async (e:React.FormEvent<HTMLFormElement>) => {
+        e?.preventDefault()
 
         const result = await fetch("/user/login", {
             method: "POST",
@@ -32,12 +32,11 @@ const Login: React.FC = () => {
           });
       
           if(result.status === 200) {
-            const {user} = await result.json();
-            userContext.setUser(user)
+            userContext.setUser(await result.json())
 
             setEmail("");
             setPassword("");
-            navigate('/profile')
+            // navigate('/profile')
           }else {
             setLoginError(true)
             setEmail("");
@@ -56,14 +55,14 @@ const Login: React.FC = () => {
             
             <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="form1Example1">Email</label>
-                <input type="email" id="form1Example1" className="form-control" value={email} onChange={emailChangeHandler} required/>
+                <input type="email" id="email" className="form-control" value={email} onChange={emailChangeHandler} required/>
             
             </div>
         
             
             <div className="form-outline mb-4">
                 <label className="form-label" htmlFor="form1Example2">Password</label>
-                <input type="password" id="form1Example2" className="form-control" value={password} onChange={passwordChangeHandler} required/>
+                <input type="password" id="password" className="form-control" value={password} onChange={passwordChangeHandler} required/>
             </div>
                 
             <button type="submit" className="btn btn-primary btn-block">Login</button>

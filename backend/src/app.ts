@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import express, {Request,Response} from "express";
 import cors from 'cors'
 import session from 'express-session'
-import passport from 'passport'
+import passport from './passport/passport'
 import notFoundRoute from "./routes/notFoundRoute";
 import { typeorm } from "./db/typeorm";
 import { User } from "./entity/user.entity"
@@ -37,14 +37,26 @@ app.use(
 );
 
 app.get('/users', async (req: Request,res: Response)=> {
-  const users = await typeorm.getRepository(User).find()
-  return res.json(users)
+    try{
+        const users = await typeorm.getRepository(User).find()
+        return res.json(users)
+    }catch (e) {
+        return res.status(404).json(req.body)
+    }
 })
 
 app.post('/user', async (req:Request, res:Response)=>{
-  const user = await typeorm.getRepository(User).create(req.body)
-  const result = await typeorm.getRepository(User).save(user)
-  return res.send(result)
+    try{
+        const user: User[] = typeorm.getRepository(User).create(req.body)
+        const result: User[] = await typeorm.getRepository(User).save(user)
+        return res.send(result)
+    }catch (e) {
+        return res.status(400).send(e)
+    }
+})
+
+app.post('/user/login',passport.authenticate('local'), async (req:Request, res:Response) => {
+    res.send(req.user)
 })
 
 app.use(passport.initialize());

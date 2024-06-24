@@ -6,6 +6,23 @@ const NavBar: React.FC = () => {
 
     const userContext = useAuth();
     const navigate = useNavigate();
+
+    const logoutHandler = async () => {
+        const result = await fetch("/api/utilizador/logout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+        });
+
+        if (result.status === 200) {
+            navigate("/login", {
+                state: { id: 1, message: "Sessão encerrada com sucesso" },
+            });
+            document.location.reload();
+        } else {
+            document.location.reload();
+        }
+    };
     
     const menuLogged = (
     <nav className="p-3 mb-3 border-bottom">
@@ -27,7 +44,7 @@ const NavBar: React.FC = () => {
                         <li><Link className="dropdown-item" to={"/profile"}>Profile</Link></li>
                         <li><Link className="dropdown-item" to={"/settings"}>Settings</Link></li>
                         <li><hr className="dropdown-divider"/></li>
-                        <li><Link className="dropdown-item" to={""}>Logout</Link></li>
+                        <li><a className="dropdown-item" onClick={logoutHandler}>Logout</a></li>
                     </ul>
                 </div>
             </div>
